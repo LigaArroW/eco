@@ -98,10 +98,56 @@
     }
   ],
   "accordion": [
-    {"accordionTitle": "Подписка WINK"},
-    {"accordionTitle": "Мобильный интернет"},
-    {"accordionTitle": "Базовые услуги"},
-    {"accordionTitle": "Остальные услуги"},
-    {"accordionTitle": "SMS/MMS"}
-  ]
+    { "accordionTitle": "Подписка WINK" },
+    { "accordionTitle": "Мобильный интернет" },
+    { "accordionTitle": "Базовые услуги" },
+    { "accordionTitle": "Остальные услуги" },
+    { "accordionTitle": "SMS/MMS" }
+  ],
+  "expensesOperations": [
+    {
+      "date": "29.07.2024",
+      "sum": "-1",
+      "operationType": "Услуга",
+      "description": "Услуга «Международная связь + роуминг»"
+    },
+    {
+      "date": "29.07.2024",
+      "sum": "-1",
+      "operationType": "Услуга",
+      "description": "Услуга «Международная связь + роуминг»"
+    },
+    {
+      "date": "29.07.2024",
+      "sum": "-1",
+      "operationType": "Услуга",
+      "description": "Услуга «Международная связь + роуминг»"
+    },
+    {
+      "date": "29.07.2024",
+      "sum": "-1",
+      "operationType": "Услуга",
+      "description": "Услуга «Международная связь + роуминг»"
+    },
+    {
+      "date": "29.07.2024",
+      "sum": "-1",
+      "operationType": "Услуга",
+      "description": "Услуга «Международная связь + роуминг»"
+    },
+    {
+      "date": "29.07.2024",
+      "sum": "-1",
+      "operationType": "Услуга",
+      "description": "Услуга «Международная связь + роуминг»"
+    }
+  ],
+  "month": ["Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь"],
+  "remainders": [{
+    "typeRemainder": "Минуты", "fullValue": "4000", "remainderValue": "3423"
+  },{
+    "typeRemainder": "СМС", "fullValue": "500", "remainderValue": "341"
+  },{
+    "typeRemainder": "Гигабайты", "fullValue": "-1", "remainderValue": "-1"
+  }]
 }

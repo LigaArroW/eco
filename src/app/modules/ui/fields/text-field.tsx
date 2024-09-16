@@ -8,6 +8,7 @@ interface ITextFieldProps {
   value: string;
   onChangeCb: (e: React.ChangeEvent<HTMLInputElement>) => void;
   addStyle?: string;
+  width?: string;
 }
 
 const TextField: FC<ITextFieldProps> = ({
@@ -18,6 +19,7 @@ const TextField: FC<ITextFieldProps> = ({
   value,
   onChangeCb,
   addStyle,
+  width = '290px',
 }) => {
   return (
     <>
@@ -28,7 +30,7 @@ const TextField: FC<ITextFieldProps> = ({
         >
           {typeof Label === 'string' ? <p>{Label}</p> : <Label />}
         </label>
-        <div className="input w-[290px]">
+        <div className={`input w-[${width}]`}>
           <input
             className=""
             type={type}

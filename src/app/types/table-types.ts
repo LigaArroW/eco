@@ -27,3 +27,16 @@ export interface IServiceTableProps {
   tableName?: string;
   tableItem: IItemServiceTable[];
 }
+
+///////////////////////////////////////
+
+export interface ITableExpensesItem {
+  date: string;
+  sum: string;
+  operationType: string;
+  description: string;
+}
+
+export interface ITableExpensesProps {
+  tableItem: ITableExpensesItem[];
+}

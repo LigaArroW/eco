@@ -35,6 +35,7 @@ const ServicesPage: FC = () => {
               {config.accordion.map((item, index) => {
                 return (
                   <Accordion
+                    key={index}
                     accordionNumber={index}
                     accordionTitle={item.accordionTitle}
                   />

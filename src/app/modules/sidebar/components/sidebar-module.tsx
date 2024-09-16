@@ -46,7 +46,7 @@ const SideBar: FC = () => {
           redirectTo="applications"
         />
         <SideBarItem title="Профиль" icon="ki-user" redirectTo="profile" />
-        <div className="flex w-full px-[20px] pt-[40vh]">
+        <div className="flex w-full px-[20px] pt-[27vh]">
           <button
             className="btn btn-outline border-[#fff] text-[#fff]"
             onClick={() => navigate('/auth/login')}
