@@ -29,7 +29,7 @@ const Accordion: FC<IAccordionProps> = ({
             className="accordion-toggle p-4"
             data-accordion-toggle={`#accordion_4_content_${accordionNumber}`}
           >
-            <span className="text-[16px] text-base font-semibold">
+            <span className="text-base font-semibold sm:text-[12px] md:text-[16px]">
               {accordionTitle}{' '}
               <span className="font-semibold text-[#78829D]">4</span>
             </span>

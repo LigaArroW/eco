@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
 import TableExpenses from '../../ui/tables/table-expenses';
-import config from '../../../../../auxuliary.json';
 import LineProgressBar from '../../ui/line-progress-bar/line-progress-bar';
+import { PageTitle } from '../../ui/page-title';
+
+import config from '../../../../../auxuliary.json';
 
 interface IExpsensesState {
   service: number;
@@ -23,9 +25,7 @@ const ExpensesPage: FC = () => {
 
   return (
     <div className="h-full w-full p-[40px] px-[45px]">
-      <div className="numbers-title pb-[30px] text-[22px] font-semibold">
-        Расходы
-      </div>
+      <PageTitle title="Расходы" />
 
       <div className="card mb-[40px]">
         <div className="card-body">

@@ -80,12 +80,12 @@ const MainPage: FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-10 px-[45px]">
+      <div className="grid grid-cols-2 gap-10 px-[45px] sm:gap-3">
         <div className="card">
           <div className="card-header">
             <h3 className="card-title">Остатки по пакетам</h3>
           </div>
-          <div className="card-body flex flex-row justify-between">
+          <div className="card-body flex flex-row justify-between sm:flex-col md:flex-row">
             <CircleProgressBar
               color="#005DA6"
               nameOfValue="Мин"
@@ -136,7 +136,7 @@ const MainPage: FC = () => {
               ></div>
             </div>
 
-            <div className="explanation mt-[20px] flex">
+            <div className="explanation mt-[20px] flex sm:flex-col">
               <div className="information mr-[15px] flex items-center text-[12px] font-medium">
                 <span className="badge badge-dot mr-[5px] size-2.5 bg-[#005DA6]"></span>
                 <span className="mr-[5px]">Связь</span>

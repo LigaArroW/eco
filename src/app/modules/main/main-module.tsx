@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, createContext } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -17,14 +17,19 @@ import { BalancePage } from '../pages/balance-page';
 import { ApplicationPage } from '../pages/application-page';
 import { ProfilePage } from '../pages/profile-page';
 
+export const Context = createContext(null);
+
 const MainModule: FC = () => {
+  const [sidePanelOpen, setPanelOpen] = useState<boolean>(true);
   return (
-    <div className="grid h-full w-full grid-cols-layout grid-rows-layout grid-areas-layout">
+    <div className="grid h-full w-full grid-rows-layout grid-areas-layout md:grid-cols-layout">
       <div className="sidebar grid-in-nav">
-        <SideBar />
+        <Context.Provider value={sidePanelOpen}>
+          <SideBar changeVis={setPanelOpen} />
+        </Context.Provider>
       </div>
       <div className="header w-full min-w-[100%] grid-in-header">
-        <Header />
+        <Header changeVis={setPanelOpen} />
       </div>
 
       <div className="main-content mb-[40px] bg-[#F6F8F8] grid-in-main">

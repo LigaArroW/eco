@@ -10,12 +10,12 @@ const TableNumbers: FC<ITableNumbersProps> = ({ tableName, tableItem }) => {
   }, 0);
 
   return (
-    <div className="card mr-[45px] mt-[35px]">
+    <div className="card mb-[20px] mr-[45px]">
       <div className="card-header">
         <h3 className="card-title">{tableName}</h3>
       </div>
       <div className="card-table pb-[20px]">
-        <table className="table flex align-middle text-sm font-medium text-gray-700">
+        <table className="table flex align-middle font-medium text-gray-700 sm:text-[10px] md:text-sm">
           <thead>
             <tr className="">
               <th className="w-[200px]">Номер</th>

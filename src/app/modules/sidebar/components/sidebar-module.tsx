@@ -1,19 +1,33 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import SideBarItem from './side-bar-items/side-bar-item';
 
+import { Context } from '../../main/main-module';
+
 import logo from '../../../assets/images/logo.svg';
 
-const SideBar: FC = () => {
+interface ISideBarProps {
+  changeVis: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SideBar: FC<ISideBarProps> = ({ changeVis }) => {
   const navigate = useNavigate();
+  const sidePanelOpen = useContext(Context);
+
   return (
     <>
       <div
-        className="fixed flex h-full min-w-[290px] max-w-[100%] flex-col items-center bg-[#000]"
+        className={`flex h-[100vh] min-w-[290px] max-w-[100%] flex-col items-center bg-[#000] md:fixed md:block lg:fixed lg:left-[0px] ${sidePanelOpen ? 'absolute' : 'hidden'} sm:z-1`}
         data-drawer="true"
         id="drawer_1"
       >
+        <button
+          className="btn absolute left-[85%] top-0 text-[#fff] md:hidden"
+          onClick={() => changeVis((prev) => !prev)}
+        >
+          <i className="ki-filled ki-cross"></i>
+        </button>
         <div className="mb-[10px] flex w-full items-start justify-start px-[30px] py-[20px]">
           <img src={logo} alt="Экомобайл" />
         </div>

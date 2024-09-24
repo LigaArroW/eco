@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 
 import Accordion from '../../ui/accordion/accordion';
+import { PageTitle } from '../../ui/page-title';
 
 import config from '../../../../../auxuliary.json';
 
@@ -9,7 +10,7 @@ const ServicesPage: FC = () => {
 
   return (
     <div className="h-full w-full pl-[45px] pt-[40px]">
-      <div className="numbers-title text-[22px] font-semibold">Услуги</div>
+      <PageTitle title="Услуги" />
 
       <select
         className="select mt-[15px] w-[200px]"

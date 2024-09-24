@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { PageTitle } from '../../ui/page-title';
+
 import config from '../../../../../auxuliary.json';
 
 interface IRemaindersItem {
@@ -12,9 +14,7 @@ const RemainderPage: FC = () => {
   const remainderItems: IRemaindersItem[] = config.remainders;
   return (
     <div className="h-full w-full p-[40px] px-[45px]">
-      <div className="numbers-title pb-[30px] text-[22px] font-semibold">
-        Остатки пакетов
-      </div>
+      <PageTitle title="Остатки пакетов" />
       <div className="card">
         <div className="card-body">
           <table className="table align-middle text-sm font-medium text-gray-700">

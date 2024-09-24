@@ -14,7 +14,7 @@ const WarningBadge: FC<IWarningBadge> = ({ title, message, buttonText }) => {
           <i className="ki-duotone ki-shield-cross text-[30px] text-[#F6B100]"></i>
         </div>
         <div className="warning-content flex flex-row">
-          <div className="warning-text">
+          <div className="warning-text sm:flex-row">
             <div className="warning-title text-[15px] font-semibold text-[#252F4A]">
               {title}
             </div>
@@ -25,7 +25,7 @@ const WarningBadge: FC<IWarningBadge> = ({ title, message, buttonText }) => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="warning-button mr-[100px]">
+        <div className="warning-button mr-[100px] sm:mr-[1px]">
           <button className="btn btn-warning">{buttonText}</button>
         </div>
         <div className="warning-arrow">

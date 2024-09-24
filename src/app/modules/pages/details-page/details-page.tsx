@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 
 import TextField from '../../ui/fields/text-field';
+import { PageTitle } from '../../ui/page-title';
+import { Card } from '../../ui/card';
 
 const DetailsPage: FC = () => {
   const [userInfo, setUserInfo] = useState({
@@ -8,16 +10,9 @@ const DetailsPage: FC = () => {
   });
   return (
     <div className="h-full w-full p-[40px] px-[45px]">
-      <div className="numbers-title pb-[30px] text-[22px] font-semibold">
-        Детализация
-      </div>
-
-      <div className="card">
-        <div className="card-body">
-          <div className="card-title w-full border-b-2 pb-[15px]">
-            Запрос деталиции
-          </div>
-
+      <PageTitle title="Детализация" />
+      <Card cardTitle="Запрос деталиции">
+        <>
           <div className="details-info pt-[15px] text-[14px] font-medium text-[#4B5675]">
             В прошлый раз вы заказывали детализацию: [DATE VARIABLE]
           </div>
@@ -57,11 +52,11 @@ const DetailsPage: FC = () => {
               <option value="">[FORMAT VARIABLES]</option>
             </select>
           </div>
-          <button className="btn mt-[40px] w-[23vw] justify-center bg-[#005DA6] font-sans font-medium text-[#F6F8F8]">
+          <button className="btn mt-[40px] w-[23vw] justify-center bg-[#005DA6] font-sans font-medium text-[#F6F8F8] sm:text-[10px] md:text-[13px]">
             Создать заявку на детализацию расходов
           </button>
-        </div>
-      </div>
+        </>
+      </Card>
     </div>
   );
 };

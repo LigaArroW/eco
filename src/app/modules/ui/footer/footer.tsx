@@ -21,7 +21,7 @@ const Footer: FC = () => {
           info@ekomobile.ru
         </a>
       </div>
-      <div className="contact-numbers pl-[20vw]">
+      <div className="contact-numbers pl-[20vw] sm:pl-[10vw]">
         <a className="text-[#005DA6]" href="tel:+74950110522">
           +7 (495) 011-05-22
         </a>
