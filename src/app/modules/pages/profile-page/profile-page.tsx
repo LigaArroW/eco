@@ -1,23 +1,29 @@
-import { FC, useState } from 'react';
+import { FC, useState } from "react";
 
-import TextField from '../../ui/fields/text-field';
-import { IProfileInfo } from '../../../types/profile-info-types';
-import { Card } from '../../ui/card';
-import { PageTitle } from '../../ui/page-title';
+import TextField from "../../ui/fields/text-field";
+import { IProfileInfo } from "../../../types/profile-info-types";
+import { Card } from "../../ui/card";
+import { PageTitle } from "../../ui/page-title";
+
+// import { defaultStyles } from "../../../utils/default-styles";
+import { Button } from "../../ui/button";
 
 // import config from '../.././../../../auxuliary.json';
 
 const ProfilePage: FC = () => {
   const [profileInfo, setProfileInfo] = useState<IProfileInfo>({
-    fullName: '',
-    phoneNumber: '',
-    email: '',
-    dateOfBirth: '',
-    sex: '0',
-    password: '',
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    dateOfBirth: "",
+    sex: "0",
+    password: "",
   });
+
+  // const { bgColor } = defaultStyles;
+
   return (
-    <div className="xs:p-[18px] h-full w-full md:p-[40px] md:px-[45px]">
+    <div className="h-full w-full xs:p-[18px] md:p-[40px] md:px-[45px]">
       <PageTitle title="Профиль" />
       <Card cardTitle="Основное">
         <>
@@ -83,17 +89,13 @@ const ProfilePage: FC = () => {
             }
             addStyle="mt-[15px]"
           />
-          <div className="mt-[15px] flex max-w-32 flex-col items-start">
-            <label className="form-label text-sm font-medium text-[#161616]">
-              Пол
-            </label>
+          <div className="mb-[20px] mt-[15px] flex max-w-32 flex-col items-start">
+            <label className="form-label text-sm font-medium text-[#161616]">Пол</label>
             <select
               className="select w-[290px] rounded-[8px] hover:cursor-pointer"
               name="select"
               value={profileInfo.sex}
-              onChange={(e) =>
-                setProfileInfo({ ...profileInfo, sex: e.target.value })
-              }
+              onChange={(e) => setProfileInfo({ ...profileInfo, sex: e.target.value })}
             >
               <option value="0" disabled>
                 Выберите пол
@@ -102,9 +104,7 @@ const ProfilePage: FC = () => {
               <option value="2">Женщина</option>
             </select>
           </div>
-          <button className="btn mt-[30px] bg-[#005DA6] text-[#fff]">
-            Сохранить
-          </button>
+          <Button buttonType="default" title="Сохранить" />
         </>
       </Card>
       <Card cardTitle="Смена пароля">
@@ -114,13 +114,10 @@ const ProfilePage: FC = () => {
           Label="Пароль"
           placeholder="пароль"
           value={profileInfo.password}
-          onChangeCb={(e) =>
-            setProfileInfo({ ...profileInfo, password: e.target.value.trim() })
-          }
+          onChangeCb={(e) => setProfileInfo({ ...profileInfo, password: e.target.value.trim() })}
+          addStyle="mb-[20px]"
         />
-        <button className="btn mt-[30px] bg-[#005DA6] text-[#fff]">
-          Сменить
-        </button>
+        <Button buttonType="default" title="Сменить" />
       </Card>
     </div>
   );

@@ -1,33 +1,33 @@
-import { FC, useState } from 'react';
+import { FC, useState } from "react";
 
-import { PageTitle } from '../../ui/page-title';
-import { Card } from '../../ui/card';
-import Badge from '../../ui/badges/badge';
+import { PageTitle } from "../../ui/page-title";
+import { Card } from "../../ui/card";
+import Badge from "../../ui/badges/badge";
 
-import { renderSwitch } from '../../../utils/helpers/render-switch';
+import { renderSwitch } from "../../../utils/helpers/render-switch";
 
-import config from '../../../../../auxuliary.json';
+import { defaultStyles } from "../../../utils/default-styles";
+
+import config from "../../../../../auxuliary.json";
 
 interface IAppItem {
+  id: string;
   date: string;
   appName: string;
-  status:
-    | 'completed'
-    | 'accepted'
-    | 'in progress'
-    | 'error'
-    | 'declined'
-    | 'canceled';
-  description: 'string';
-  result: 'string';
+  status: "completed" | "accepted" | "in progress" | "error" | "declined" | "canceled";
+  description: "string";
+  result: "string";
 }
 
 const ApplicationPage: FC = () => {
   const [qtyApps, setQty] = useState<number>(2);
+
+  const { textColor } = defaultStyles;
+
   return (
-    <div className="h-full w-full p-[40px] px-[45px]">
+    <div className="h-full w-full px-[45px] pt-[40px]">
       <PageTitle title="Заявки" />
-      <Card style="xs:w-[283px] md:w-auto xs:overflow-scroll">
+      <Card style="xs:w-[283px] md:w-auto xs:overflow-scroll lg:overflow-auto">
         <table className="table align-middle text-sm font-medium text-gray-700">
           <thead>
             <tr>
@@ -43,7 +43,7 @@ const ApplicationPage: FC = () => {
               const renderType = renderSwitch(item.status);
               if (index > qtyApps) return;
               return (
-                <tr className="" key={index}>
+                <tr className="" key={item.id}>
                   <td>{item.date}</td>
                   <td>{item.appName}</td>
                   <td>{<Badge type={renderType} />}</td>
@@ -56,7 +56,7 @@ const ApplicationPage: FC = () => {
         </table>
         <div className="w-full border-t-2 py-[10px] text-center">
           <a
-            className="btn btn-link text-[#005DA6]"
+            className={`btn btn-link ${textColor.primary}`}
             onClick={() =>
               setQty(() => {
                 return qtyApps + (config.applicTable.length - qtyApps);

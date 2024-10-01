@@ -1,17 +1,20 @@
-import { FC, useState } from 'react';
+import { FC, useState } from "react";
 
-import { PageTitle } from '../../ui/page-title';
-import { Card } from '../../ui/card';
-import HeaderSelect from '../../ui/header-select/header-select';
-import ModalBalance from '../../ui/modals/modal-balance';
+import { PageTitle } from "../../ui/page-title";
+import { Card } from "../../ui/card";
+import HeaderSelect from "../../ui/header-select/header-select";
+import ModalBalance from "../../ui/modals/modal-balance";
+import TextField from "../../ui/fields/text-field";
 
-import config from '../../../../../auxuliary.json';
-import TextField from '../../ui/fields/text-field';
+import button from "../../../assets/images/button.svg";
+import qr from "../../../assets/images/qr-code.svg";
 
-import button from '../../../assets/images/button.svg';
-import qr from '../../../assets/images/qr-code.svg';
+import { defaultStyles } from "../../../utils/default-styles";
+
+import config from "../../../../../auxuliary.json";
 
 interface IBalanceItem {
+  id: string;
   date: string;
   method: string;
   sum: string;
@@ -19,17 +22,17 @@ interface IBalanceItem {
 
 const BalancePage: FC = () => {
   const [qtyApps, setQty] = useState<number>(4);
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string>("");
 
-  // const [openModal, setOpenModal] = useState<boolean>(false);
+  const { textSize, textColor } = defaultStyles;
+
   return (
     <>
-      <div className="xs:p-[0] xs:mx-[18px] h-full px-[45px] md:p-[40px]">
+      <div className="h-full px-[45px] xs:mx-[18px] xs:p-[0] md:mx-[auto] md:px-[45px] md:pt-[40px]">
         <PageTitle title="Пополнение баланса" />
         <Card>
-          <div className="take-balance xs:flex-col flex justify-between md:flex-row">
-            <div className="take-balance-left xs:flex xs:flex-col xs:items-center w-full md:block">
-              {' '}
+          <div className="take-balance flex justify-between xs:flex-col md:flex-row">
+            <div className="take-balance-left w-full xs:flex xs:flex-col xs:items-center md:block">
               <HeaderSelect
                 label="Телефон"
                 addStyle="flex flex-col mb-[20px]"
@@ -45,9 +48,8 @@ const BalancePage: FC = () => {
               />
               <div className="">
                 <button
-                  className="btn btn-link my-[40px] text-[#005DA6] no-underline"
+                  className={`btn btn-link my-[40px] ${textColor.primary} no-underline`}
                   data-modal-toggle="#modal_5"
-                  // onClick={() => setOpenModal(true)}
                 >
                   Как сформирован рекомендованный платеж?
                 </button>
@@ -57,11 +59,10 @@ const BalancePage: FC = () => {
               </div>
             </div>
 
-            <div className="xs:hidden take-balance-right xs:text-center w-[40%] md:block md:text-left">
+            <div className="take-balance-right w-[40%] xs:hidden xs:text-center md:block md:text-left">
               <div className="">
-                <p className="mb-[20px] text-[13px] font-semibold text-[#071437]">
-                  Для оплаты отсканируйте QR-код в мобильном приложении
-                  банка или штатной камерой телефона
+                <p className={`mb-[20px] ${textSize.default} font-semibold ${textColor.darkBlue}`}>
+                  Для оплаты отсканируйте QR-код в мобильном приложении банка или штатной камерой телефона
                 </p>
               </div>
 
@@ -85,7 +86,7 @@ const BalancePage: FC = () => {
               {config.balance.map((item: IBalanceItem, index) => {
                 if (index > qtyApps) return;
                 return (
-                  <tr className="" key={index}>
+                  <tr className="" key={item.id}>
                     <td>{item.date}</td>
                     <td>{item.method}</td>
                     <td>{item.sum}</td>
@@ -96,7 +97,7 @@ const BalancePage: FC = () => {
           </table>
           <div className="w-full border-t-2 py-[10px] text-center">
             <a
-              className="btn btn-link text-[#005DA6]"
+              className={`btn btn-link ${textColor.primary}`}
               onClick={() =>
                 setQty(() => {
                   return qtyApps + (config.applicTable.length - qtyApps);
